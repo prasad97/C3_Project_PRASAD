@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.*;
 
 import java.time.LocalTime;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -74,4 +75,25 @@ class RestaurantServiceTest {
         assertEquals(initialNumberOfRestaurants + 1,service.getRestaurants().size());
     }
     //<<<<<<<<<<<<<<<<<<<<ADMIN: ADDING & REMOVING RESTAURANTS>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    //add another method that returns the order value, given the name of the items in <String> format.
+        //should return menu list after passing restaurant name
+        //menu list should consist of item name and price
+        //should display total of all items selected
+
+    @Test
+    public void get_menu_should_return_menu_of_the_restaurant_of_which_name_is_passed(){
+        restaurant = service.addRestaurant("Amelie's cafe","Chennai",openingTime,closingTime);
+        restaurant.addToMenu("Sweet corn soup",119);
+        restaurant.addToMenu("Vegetable lasagne", 269);
+
+        List<Item> menu = service.findRestaurantByName("Amelie's cafe").getMenu();
+        assertNotNull(menu);
+    }
+
+
 }
+
+
+
+
