@@ -91,6 +91,10 @@ class RestaurantServiceTest {
         assertNotNull(menu);
     }
 
+    @Test
+    public void order_total_should_be_displayed_for_the_selected_item(){
+
+    }
 
 }
 
